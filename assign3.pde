@@ -250,7 +250,7 @@ void draw() {
     // Health UI
     for (int i=0; i<nbrlife; i++) {
       image(life, 10+i*(lifeSize+lifeGap), 10);
-       }
+    }
 
     //Play
     if (ghX<sdX+sdW && ghX+ghW>sdX && ghY+ghW>sdY+.3+moveScript && ghY<sdY+sdW-.3+moveScript) {
@@ -267,7 +267,7 @@ void draw() {
       && playerHealth<=5 && playerHealth>=0) {
       cabbageX=-100;
       cabbageY=-100;
-      if(nbrlife<lifemax){
+      if (nbrlife<lifemax) {
         nbrlife++;
       }
     }
@@ -362,7 +362,11 @@ void draw() {
 
       image(restartHovered, START_BUTTON_X, START_BUTTON_Y);
       if (mousePressed) {
-          ghState=GH_IDLE;
+        ghState=GH_IDLE;
+        sdY = floor(random(2, 6))*80;
+        //cabbage
+        cabbageX = floor(random(1, 8))*80;
+        cabbageY = floor(random(2, 6))*80;
         Time=0;
         ghX = width / 2.0 ;
         ghY = 80;
@@ -371,9 +375,8 @@ void draw() {
         test=0;
         gameState = GAME_RUN;
         mousePressed = false;
-        
+
         // Remember to initialize the game here!
-      
       }
     } else {
 
